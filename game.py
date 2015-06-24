@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 from sys import exit
-from random import randint
+import random
 
 print "\nWelcome to the Vocabulary Gauntlet!!!!!\n"
 language_choice = False
@@ -42,14 +42,18 @@ class Scene(object):
 
 
     def quiz(self):
-        print "\nThere are " + str(len(self.quiz_dict)) + " items in this quiz."
+        keys_list = self.quiz_dict.keys()
+        # random sample from keys_list
+        keys_list = random.sample(keys_list, 10)
+
+        print "\nThere are 10 items in this quiz."
         print "After 7 wrong answers, the quiz will restart.\n"
         num_correct = 0
         num_wrong = 0
-        for key, value in self.quiz_dict.items():
+        for key in keys_list:
             print key + ":  "
             answer = raw_input(">> ")
-            if answer == value:
+            if answer == self.quiz_dict[key]:
                 print "*****Good job!*****"
                 num_correct += 1
                 print "\tCorrect answers: " + str(num_correct)
@@ -57,7 +61,7 @@ class Scene(object):
             else:
                 num_wrong += 1
                 print "*****Wrong answer!*****"
-                print "(correct answer = " + value + ")"
+                print "(correct answer = " + self.quiz_dict[key] + ")"
                 print "\tNumber correct: " + str(num_correct)
                 print "\tNumber wrong: " + str(num_wrong) + "\n"
 
@@ -156,13 +160,13 @@ class ColorRoom(Scene):
 class NumberRoom(Scene):
     quiz_dict = numbers
     def enter(self):
-        print "\nWelcome to the Hall of Numbers. You will be given an English number,"
+        print "\nYou have now entered the eerily pristine Hall of Numbers. You will be given an English number,"
         print "and you must provide the translation in order to proceed to the next room."
         finished = False
         while not finished:
             finished = self.quiz()
         print "\n" + "-" * 80
-        print "Excellent work! You have completed the first trial. Onward!"
+        print "Excellent work! You have completed the second trial. Onward!"
         print "-" * 80
         return 'body_room'
 
@@ -170,9 +174,15 @@ class NumberRoom(Scene):
 class BodyRoom(Scene):
     quiz_dict = body_parts
     def enter(self):
-        print "\nWelcome to final room, the Body Parts Basement."
-        print "(It's not as grisly as it sounds, though this quiz is the hardest of the three challenges.)"
+        print "\nYou step into the final room: the Body Parts Basement."
+        print "(It's not as grisly as it sounds, though this quiz is the hardest of the 3 challenges.)"
         print "You will now be quizzed on the parts of the body. Begin!\n"
+
+        if language == 'Italian':
+            print "NB: Be sure to use the definite article (la, il, l',  or lo) as appropriate.\n"
+        else:
+            print "NB: The definite or indefinite article is not required.\n"
+
         finished = False
         while not finished:
             finished = self.quiz()
