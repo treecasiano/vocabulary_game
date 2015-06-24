@@ -10,13 +10,13 @@ colors = {
     'fuchsia' : 'galibarda',
     'green' : 'yeşil',
     'gray' : 'gri',
-    'magenta' : 'morumsu kırmızı renk'
-    'navy blue' : 'lacivert'
+    'magenta' : 'morumsu kırmızı renk',
+    'navy blue' : 'lacivert',
     'orange' : 'turuncu',
     'pink' : 'pembe',
     'purple' : 'mor',
     'red' : 'kırmızı',
-    'turquoise' : 'turkuvaz'
+    'turquoise' : 'turkuvaz',
     'white' : 'beyaz',
     'yellow' : 'sarı'
 
@@ -63,7 +63,7 @@ body_parts =  {
     'hand': 'el',
     'head' : 'kafa',
     'heart' : 'kalp',
-    'index finger' : 'işaret parmağı'
+    'index finger' : 'işaret parmağı',
     'leg': 'bacak',
     'liver' : 'karaciğer',
     'mouth': 'ağız',
