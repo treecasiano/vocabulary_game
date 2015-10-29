@@ -62,8 +62,8 @@ class Scene(object):
                 num_wrong += 1
                 print "*****Wrong answer!*****"
                 print "(correct answer = " + self.quiz_dict[key] + ")"
-                print "\tNumber correct: " + str(num_correct)
-                print "\tNumber wrong: " + str(num_wrong) + "\n"
+                print "\tCorrect answers: " + str(num_correct)
+                print "\tWrong answers: " + str(num_wrong) + "\n"
 
                 if num_wrong > 6:
                     return False
@@ -128,7 +128,7 @@ class Foyer(Scene):
             print "\t\t[WINDOWS]\tRightAlt + d\n"
 
         if language == "Turkish":
-            print "You will need to use a Turkish-QWERTY keyboard instead of the US-Exended Keyboard"
+            print "You will need to use a Turkish-QWERTY keyboard instead of the US-Extended Keyboard"
             print "because ş, ı, and ğ are not coded into the US-Extended Keyboard. Sigh.\n "
             print "\t[MAC]\t\tuse option + i, s, c, o, u, or g for ı, ş, ç, ö, ü, or ğ"
             print "-" * 80
